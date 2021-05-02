@@ -1,3 +1,4 @@
+
 #include <cstdio>
 #include <windows.h>
 #include <GL/gl.h>
@@ -59,7 +60,7 @@ void update_sun(int value)
         position_sun_down = 1.0f;
     }
     position_sun -= speed_sun;
-    position_sun_down -= speed_sun;
+    position_sun_down -= speed_sun/3;
 
 	glutTimerFunc(135, update_sun, 0);
 }
@@ -80,8 +81,8 @@ void update_ship(int value)
 
 void update_sea_wave(int value)
 {
-	position_sea_wave -= 60;
-	if(position_sea_wave <= -90)
+	position_sea_wave -= 50;
+	if(position_sea_wave <= -80)
 		position_sea_wave = 0;
 
     glutPostRedisplay();
@@ -97,7 +98,7 @@ void update_moon(int value)
         position_moon_down = 1.0f;
     }
     position_moon -= speed_moon;
-    position_moon_down -= speed_moon;
+    position_moon_down -= speed_moon/3;
 
 	glutTimerFunc(80, update_moon, 0);
 }
@@ -533,7 +534,7 @@ void Rain()
     // Rain line1
     glColor3ub(174, 214, 241);
     glBegin(GL_LINES);
-    glVertex2f (-0.4,0.47);
+    glVertex2f (-0.40,0.47);
     glVertex2f (-0.35,0.28);
     glEnd();
 
@@ -2842,7 +2843,7 @@ int main(int argc, char** argv)
 	glutInit(&argc, argv);
 	glutInitWindowSize(800, 640);
     glutInitWindowPosition(400, 80);
-	glutCreateWindow("Dynamic Sea Beach Vie");
+	glutCreateWindow("Dynamic Sea Beach View (Including Audio Effects)");
 
 	glutDisplayFunc(load_Start);
 
