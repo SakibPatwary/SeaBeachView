@@ -1,4 +1,12 @@
 
+/// Project Name: Cox's Bazar Sea Beach View
+
+/// Member 01: Jarin Tasnim  Shama_______ID: 18-37826-2
+/// Member 02: Pulok Rehan_______________ID: 18-37907-2
+/// Member 03: Sakib Patwary ____________ID: 18-38140-2
+/// Member 04: Nila Mahazaben____________ID: 19-39964-1
+
+
 #include <cstdio>
 #include <windows.h>
 #include <GL/gl.h>
@@ -9,49 +17,48 @@
 
 GLfloat i = 0.0f;
 
-GLfloat position_sun = 0.0f;
+//INITIALIZING
+
+GLfloat position_sun = 0.0f;    ///SUN
 GLfloat position_sun_down = 0.0f;
 GLfloat speed_sun = 0.0175f;
 
-GLfloat position_moon = 0.0f;
+GLfloat position_moon = 0.0f;   ///MOON
 GLfloat position_moon_down = 0.0f;
 GLfloat speed_moon = 0.0175f;
 
-GLfloat position_cloud = 0.0f;
+GLfloat position_cloud = 0.0f;  ///CLOUD
 GLfloat speed_cloud = 0.02f;
 
-GLfloat position_balloon = 0.0f;
+GLfloat position_balloon = 0.0f;    ///BALOON
 GLfloat speed_balloon = 0.4f;
 
-GLfloat position_bird = 0.0f;
+GLfloat position_bird = 0.0f;   ///BIRD
 GLfloat speed_bird = 0.03f;
 
-GLfloat rain_position1 = 0.0f;
+GLfloat rain_position1 = 0.0f;  ///RAIN
 GLfloat rain_speed1 = 0.02f;
 GLfloat rain_position2 = 0.0f;
 GLfloat rain_speed2 = 0.01f;
-
-GLfloat position_ship = 0.0f;
-GLfloat speed_ship = 0.01f;
-
-GLfloat position_sea_wave = 0.0f;
-GLfloat speed_sea_wave = 0.05f;
-
 boolean RainController = false;
 
-GLfloat ship_position = 0.0f;///ship
+GLfloat position_ship = 0.0f;   ///SHIP
+GLfloat speed_ship = 0.01f;
+GLfloat ship_position = 0.0f;
+
+GLfloat position_sea_wave = 0.0f;   ///SEA WAVE
+GLfloat speed_sea_wave = 0.05f;
 
 void load_Start();
 void load_DayBack();
 
 
-
 void Idle()
 {
-    glutPostRedisplay();
+    glutPostRedisplay();    ///IF NEED RE-DISPLAY
 }
 
-void update_sun(int value)
+void update_sun(int value)  ///UPDATE SUN
 {
 
     if(position_sun <-1.0)
@@ -65,7 +72,7 @@ void update_sun(int value)
 	glutTimerFunc(135, update_sun, 0);
 }
 
-void update_ship(int value)
+void update_ship(int value)     ///UPDATE SHIP
 {
 
    if(position_ship <-1.0)
@@ -79,7 +86,7 @@ void update_ship(int value)
 
 }
 
-void update_sea_wave(int value)
+void update_sea_wave(int value)     ///UPDATE SEA WAVE
 {
 	position_sea_wave -= 50;
 	if(position_sea_wave <= -80)
@@ -90,7 +97,7 @@ void update_sea_wave(int value)
     glutTimerFunc(1500,update_sea_wave,0);
 }
 
-void update_moon(int value)
+void update_moon(int value)     ///UPDATE MOON
 {
     if(position_moon <-1.0)
     {
@@ -103,7 +110,7 @@ void update_moon(int value)
 	glutTimerFunc(80, update_moon, 0);
 }
 
-void update_cloud(int value)
+void update_cloud(int value)    ///UPDATE CLOUD
 {
 
     if(position_cloud <-1.0)
@@ -115,7 +122,7 @@ void update_cloud(int value)
 	glutTimerFunc(100, update_cloud, 0);
 }
 
-void update_balloon(int value)
+void update_balloon(int value)      ///UPDATE BALOON
 {
 
     if(position_balloon <-1.0)
@@ -127,7 +134,7 @@ void update_balloon(int value)
 	glutTimerFunc(50, update_balloon, 0);
 }
 
-void update_bird(int value)
+void update_bird(int value)     ///UPDATE BIRD
 {
     if(position_bird <-1.0)
     {
@@ -138,7 +145,7 @@ void update_bird(int value)
 	glutTimerFunc(100, update_bird, 0);
 }
 
-void update_rain(int value)
+void update_rain(int value)     ///UPDATE RAIN
 {
      if(rain_position1 <-1.0)
         rain_position1 = 0.2f;
@@ -155,10 +162,10 @@ void update_rain(int value)
 
 void load_Restart(int x)
 {
-    glutDisplayFunc(load_Start);
+    glutDisplayFunc(load_Start);    ///CALLBACK DISPLAY FUNCTION
 }
 
-void Ship()
+void Ship()         ///SHIP STRUCTURE 01
 {
     glScalef(.2,.2,0);
 
@@ -173,8 +180,7 @@ void Ship()
     glVertex2f(0.3f, -0.2f);
     glEnd();
 
-    /// 1st floor
-    glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);    /// 1st floor
     glColor3ub(51, 0, 128);
     glVertex2f(-0.25f, -0.07f);
     glVertex2f(-0.25f, -0.2f);
@@ -182,7 +188,7 @@ void Ship()
     glVertex2f(0.1f, -0.07f);
     glEnd();
 
-    glBegin(GL_QUADS); ///window1
+    glBegin(GL_QUADS);      ///window 1
     glColor3ub(255, 0, 255);
     glVertex2f(-0.2f, -0.09f);
     glVertex2f(-0.2f, -0.18f);
@@ -190,7 +196,7 @@ void Ship()
     glVertex2f(-0.15f, -0.09f);
     glEnd();
 
-    glBegin(GL_QUADS); ///window2
+    glBegin(GL_QUADS);     ///window 2
     glColor3ub(241, 196, 15);
     glVertex2f(-0.1f, -0.09f);
     glVertex2f(-0.1f, -0.18f);
@@ -198,7 +204,7 @@ void Ship()
     glVertex2f(-0.05f, -0.09f);
     glEnd();
 
-    glBegin(GL_QUADS); ///window3
+    glBegin(GL_QUADS);     ///window 3
     glColor3ub(255, 0, 255);
     glVertex2f(0.0f, -0.09f);
     glVertex2f(0.0f, -0.18f);
@@ -207,8 +213,7 @@ void Ship()
     glEnd();
 
 
-    ///2nd floor
-    glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);    ///2nd floor
     glColor3ub(33, 97, 140);
     glVertex2f(-0.2f, 0.05f);
     glVertex2f(-0.2f, -0.07f);
@@ -216,7 +221,7 @@ void Ship()
     glVertex2f(0.02f, 0.05f);
     glEnd();
 
-    glBegin(GL_QUADS); ///window1
+    glBegin(GL_QUADS);     ///window 1
     glColor3ub(0, 153, 51);
     glVertex2f(-0.18f, 0.03f);
     glVertex2f(-0.18f, -0.061f);
@@ -224,15 +229,7 @@ void Ship()
     glVertex2f(-0.13f, 0.03f);
     glEnd();
 
-    /*  glBegin(GL_QUADS); ///window2
-    glColor3ub(241, 196, 15);
-    glVertex2f(-0.12f, 0.03f);
-    glVertex2f(-0.12f, -0.061f);
-    glVertex2f(-0.07f, -0.061f);
-    glVertex2f(-0.07f, 0.03f);
-    glEnd();
-    */
-    glBegin(GL_QUADS); ///window3
+    glBegin(GL_QUADS); ///window 2
     glColor3ub(0, 153, 51);
     glVertex2f(-0.06f, 0.03f);
     glVertex2f(-0.06f, -0.061f);
@@ -244,123 +241,118 @@ void Ship()
     glLoadIdentity();
 }
 
-void Ship_2()
+void Ship_2()       ///SHIP STRUCTURE 02
 {
     glPushMatrix();
     glTranslatef(-position_ship,0.0f, 0.0f);
     glScalef(0.5,0.5,0.0);
     glTranslatef(-0.7,0.6,0.0);
-        glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);
 
-        glColor3ub(10, 10, 30);
+    glColor3ub(10, 10, 30);
 
-        glVertex2f(-0.6f,-0.7f);
-        glVertex2f(-0.5f,-0.8f);
-        glVertex2f(0.3f,-0.8f);
-        glVertex2f(0.4f,-0.7f);
+    glVertex2f(-0.6f,-0.7f);
+    glVertex2f(-0.5f,-0.8f);
+    glVertex2f(0.3f,-0.8f);
+    glVertex2f(0.4f,-0.7f);
 
-        glEnd();
+    glEnd();
 
-        glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);
 
-        glColor3ub(227, 218, 209);
+    glColor3ub(227, 218, 209);
 
-        glVertex2f(-0.48f,-0.6f);
-        glVertex2f(-0.5f,-0.7f);
-        glVertex2f(0.2f,-0.7f);
-        glVertex2f(0.15f,-0.6f);
+    glVertex2f(-0.48f,-0.6f);
+    glVertex2f(-0.5f,-0.7f);
+    glVertex2f(0.2f,-0.7f);
+    glVertex2f(0.15f,-0.6f);
 
-        glEnd();
+    glEnd();
 
-        glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);
 
-        glColor3ub(255, 255, 255);
+    glColor3ub(255, 255, 255);
 
-        glVertex2f(-0.48f,-0.65f);
-        glVertex2f(-0.48f,-0.68f);
-        glVertex2f(0.15f,-0.68f);
-        glVertex2f(0.15f,-0.65f);
+    glVertex2f(-0.48f,-0.65f);
+    glVertex2f(-0.48f,-0.68f);
+    glVertex2f(0.15f,-0.68f);
+    glVertex2f(0.15f,-0.65f);
 
-        glEnd();
+    glEnd();
 
-        ///chimni
-        glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);    ///chimni
 
-        glColor3ub(217, 185, 24);
+    glColor3ub(217, 185, 24);
 
-        glVertex2f(-0.4f,-0.5f);
-        glVertex2f(-0.4f,-0.6f);
-        glVertex2f(-.3f,-0.6f);
-        glVertex2f(-.3f,-0.5f);
+    glVertex2f(-0.4f,-0.5f);
+    glVertex2f(-0.4f,-0.6f);
+    glVertex2f(-.3f,-0.6f);
+    glVertex2f(-.3f,-0.5f);
 
-        glEnd();
+    glEnd();
 
-        glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);
 
-        glColor3ub(217, 185, 24);
+    glColor3ub(217, 185, 24);
 
-        glVertex2f(-0.2f,-0.5f);
-        glVertex2f(-0.2f,-0.6f);
-        glVertex2f(-.1f,-0.6f);
-        glVertex2f(-.1f,-0.5f);
+    glVertex2f(-0.2f,-0.5f);
+    glVertex2f(-0.2f,-0.6f);
+    glVertex2f(-.1f,-0.6f);
+    glVertex2f(-.1f,-0.5f);
 
-        glEnd();
+    glEnd();
 
-        glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);
 
-        glColor3ub(217, 185, 24);
+    glColor3ub(217, 185, 24);
 
-        glVertex2f(-0.0f,-0.5f);
-        glVertex2f(-0.0f,-0.6f);
-        glVertex2f(.1f,-0.6f);
-        glVertex2f(.1f,-0.5f);
+    glVertex2f(-0.0f,-0.5f);
+    glVertex2f(-0.0f,-0.6f);
+    glVertex2f(.1f,-0.6f);
+    glVertex2f(.1f,-0.5f);
 
-        glEnd();
+    glEnd();
 
+    glBegin(GL_POLYGON);    ///chimni border
 
+    glColor3ub(8, 7, 6);
 
+    glVertex2f(-0.4f,-0.5f);
+    glVertex2f(-0.4f,-0.48f);
+    glVertex2f(-.3f,-0.48f);
+    glVertex2f(-.3f,-0.5f);
 
+    glEnd();
 
-        ///chimni border
-        glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);
 
-        glColor3ub(8, 7, 6);
+    glColor3ub(8, 7, 6);
 
-        glVertex2f(-0.4f,-0.5f);
-        glVertex2f(-0.4f,-0.48f);
-        glVertex2f(-.3f,-0.48f);
-        glVertex2f(-.3f,-0.5f);
+    glVertex2f(-0.2f,-0.5f);
+    glVertex2f(-0.2f,-0.48f);
+    glVertex2f(-.1f,-0.48f);
+    glVertex2f(-.1f,-0.5f);
 
-        glEnd();
+    glEnd();
 
-        glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);
 
-        glColor3ub(8, 7, 6);
+    glColor3ub(8, 7, 6);
 
-        glVertex2f(-0.2f,-0.5f);
-        glVertex2f(-0.2f,-0.48f);
-        glVertex2f(-.1f,-0.48f);
-        glVertex2f(-.1f,-0.5f);
+    glVertex2f(-0.0f,-0.5f);
+    glVertex2f(-0.0f,-0.48f);
+    glVertex2f(.1f,-0.48f);
+    glVertex2f(.1f,-0.5f);
 
-        glEnd();
+    glEnd();
 
-        glBegin(GL_POLYGON);
-
-        glColor3ub(8, 7, 6);
-
-        glVertex2f(-0.0f,-0.5f);
-        glVertex2f(-0.0f,-0.48f);
-        glVertex2f(.1f,-0.48f);
-        glVertex2f(.1f,-0.5f);
-
-        glEnd();
     glLoadIdentity();
     glPopMatrix();
 
 
 }
 
-void Tower()
+void Tower()        ///TOWER STRUCTURE
 {
     glTranslatef(0.7,-0.5,0.0);
     glScalef(0.8,0.8,0.0);
@@ -466,54 +458,47 @@ void Tower()
     glVertex2f(-0.08, -0.1);
     glEnd();
 
-    //glLoadIdentity();
-
-    glTranslatef(0.0, -0.05, 0.0);
+    glTranslatef(0.0, -0.05, 0.0);   ///LoadIdentity();
     glBegin(GL_LINES);
     glColor3ub(94, 0, 0);
     glVertex2f(0.08, -0.1);
     glVertex2f(-0.08, -0.1);
     glEnd();
 
-    //glLoadIdentity();
 
-    glTranslatef(0.0, -0.05, 0.0);
+    glTranslatef(0.0, -0.05, 0.0);   ///LoadIdentity();
     glBegin(GL_LINES);
     glColor3ub(94, 0, 0);
     glVertex2f(0.08, -0.1);
     glVertex2f(-0.08, -0.1);
     glEnd();
 
-    //glLoadIdentity();
 
-    glTranslatef(0.0, -0.05, 0.0);
+    glTranslatef(0.0, -0.05, 0.0);       ///LoadIdentity();
     glBegin(GL_LINES);
     glColor3ub(94, 0, 0);
     glVertex2f(0.08, -0.1);
     glVertex2f(-0.08, -0.1);
     glEnd();
 
-    //glLoadIdentity();
 
-    glTranslatef(0.0, -0.05, 0.0);
+    glTranslatef(0.0, -0.05, 0.0);       ///LoadIdentity();
     glBegin(GL_LINES);
     glColor3ub(94, 0, 0);
     glVertex2f(0.08, -0.1);
     glVertex2f(-0.08, -0.1);
     glEnd();
 
-    //glLoadIdentity();
 
-    glTranslatef(0.0, -0.05, 0.0);
+    glTranslatef(0.0, -0.05, 0.0);       ///LoadIdentity();
     glBegin(GL_LINES);
     glColor3ub(94, 0, 0);
     glVertex2f(0.08, -0.1);
     glVertex2f(-0.08, -0.1);
     glEnd();
 
-    //glLoadIdentity();
 
-    glTranslatef(0.0, -0.05, 0.0);
+    glTranslatef(0.0, -0.05, 0.0);       ///LoadIdentity();
     glBegin(GL_LINES);
     glColor3ub(94, 0, 0);
     glVertex2f(0.08, -0.1);
