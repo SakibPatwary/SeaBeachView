@@ -6,6 +6,38 @@
 /// Member 03: Sakib Patwary ____________ID: 18-38140-2
 /// Member 04: Nila Mahazaben____________ID: 19-39964-1
 
+///Main Function Line : 2850
+///Ship 01 Line : 169
+///Ship 02 Line : 245
+///Tower Line : 356
+///Rain Line : 512
+///Sun Line : 1158
+///Moon Line : 1179
+///cloud Line : 1211
+///Bird Line : 1324
+///Tree Line : 1486
+///Umbrella Line : 1527
+///Seat Line : 1607
+///Balloon Line : 1639
+///Day Sky Line : 1704
+///Evening Sky Line : 1791
+///Night Sky Line : 1956
+///Day Sea Line : 2034
+///Evening Sea Line : 2061
+///Night Sea Line : 2090
+///Sea Wave Line : 2119
+///Day Mountain Line : 2182
+///Enening Mountain Line : 2212
+///Night Mountain : 2242
+///Mill Line : 2272
+///Day Sand Line : 2333
+///Evening Sand Line : 2352
+///Day Sand Texture Line : 2394
+///Night Sand Texture Line : 2372
+///Day Sand Texture : 2394
+///Evening Sand Texture Line : 2600
+///View Time Line : 2728
+
 #include<bits/stdc++.h>
 #include <cstdio>
 #include <windows.h>
@@ -2330,9 +2362,8 @@ void Mill()     ///MILL STRUCTURE
     glLoadIdentity();
 }
 
-void Day_Sand_Texure()  ///SAND TEXTURE
+void Day_Sand_Texure()  ///DAY SAND TEXTURE
 {
-
     glBegin(GL_LINES);      ///SAND TEXURE
     glColor3ub(153, 153, 0);
     glVertex2f(-0.95,-0.35);
@@ -2814,16 +2845,20 @@ void View_Day()     ///DAY TIME
     Ship();
     Ship_2();
     Tower();
+
     glTranslatef(0.05,0.1,0.0);
         Tree();
     glLoadIdentity();
+
     Tree();
     glTranslatef(-0.10,0.345,0.0);
         Mill();
     glLoadIdentity();
+
     glTranslatef(0.10,0.345,0.0);
         Mill();
     glLoadIdentity();
+
     if(RainController == true)
     {
         Rain();
@@ -2845,8 +2880,8 @@ void load_Start()
 
 int main(int argc, char** argv)
 {
-    cout<<"press R or r for rain start"<< endl;
-	cout<<"press D or d for rain stop"<< endl;
+    cout<<"\npress R or r for rain start"<< endl;
+	cout<<"\npress D or d for rain stop"<< endl;
 
     glutInit(&argc, argv);
 	glutInitWindowSize(800, 640);
