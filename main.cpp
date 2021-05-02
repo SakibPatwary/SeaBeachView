@@ -6,12 +6,13 @@
 /// Member 03: Sakib Patwary ____________ID: 18-38140-2
 /// Member 04: Nila Mahazaben____________ID: 19-39964-1
 
-
+#include<bits/stdc++.h>
 #include <cstdio>
 #include <windows.h>
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include <math.h>
+using namespace std;
 
 #define PI 3.14159265358979323846
 
@@ -508,16 +509,12 @@ void Tower()        ///TOWER STRUCTURE
     glLoadIdentity();
 }
 
-void Rain()
+void Rain()         ///RAIN STRUCTURE
 {
     glPushMatrix();
     glTranslatef(rain_position2,rain_position1, 0.0f);
 
-    ///glLineWidth(1.5); /*DON'T USE LINE WIDTH
-
-
-    // Rain line1
-    glColor3ub(174, 214, 241);
+    glColor3ub(174, 214, 241);  /// Rain line 1
     glBegin(GL_LINES);
     glVertex2f (-0.40,0.47);
     glVertex2f (-0.35,0.28);
@@ -676,8 +673,9 @@ void Rain()
 
     glPushMatrix();
     glTranslatef(rain_position2,rain_position1, 0.0f);
-    // Rain line2
-    glColor3ub(174, 214, 241);
+
+
+    glColor3ub(174, 214, 241);       /// Rain line 2
     glBegin(GL_LINES);
     glVertex2f (-0.4,0.47);
     glVertex2f (-0.35,0.28);
@@ -830,21 +828,15 @@ void Rain()
 
     glLoadIdentity();
 
-
-
     glPopMatrix();
-
-
-
 
     glTranslatef(0,-0.4,0);
 
-
-
     glPushMatrix();
     glTranslatef(rain_position2,rain_position1, 0.0f);
-    // Rain line3
-    glColor3ub(174, 214, 241);
+
+
+    glColor3ub(174, 214, 241);   /// Rain line 3
     glBegin(GL_LINES);
     glVertex2f (-0.4,0.47);
     glVertex2f (-0.35,0.28);
@@ -997,19 +989,15 @@ void Rain()
 
     glLoadIdentity();
 
-
     glPopMatrix();
-
-
 
     glTranslatef(0,-0.8,0);
 
-
-
     glPushMatrix();
     glTranslatef(rain_position2,rain_position1, 0.0f);
-    // Rain line4
-    glColor3ub(174, 214, 241);
+
+
+    glColor3ub(174, 214, 241);      ///Rain line 4
     glBegin(GL_LINES);
     glVertex2f (-0.4,0.47);
     glVertex2f (-0.35,0.28);
@@ -1167,7 +1155,7 @@ void Rain()
 
 }
 
-void Sun()
+void Sun()      ///SUN STRUCTURE
 {
     glPushMatrix();
     glTranslatef(-position_sun, 0.0/*position_sun_down*/, 0.0f);
@@ -1188,7 +1176,7 @@ void Sun()
 	glPopMatrix();
 }
 
-void Moon()
+void Moon()     ///MOON STRUCTURE
 {
     glPushMatrix();
     glTranslatef(-position_moon, 0.0/*position_moon_down*/, 0.0f);
@@ -1220,7 +1208,7 @@ void Moon()
     glPopMatrix();
 }
 
-void Cloud()
+void Cloud()        ///CLOUD STRUCTURE
 {
     glPushMatrix();
     glTranslatef(position_cloud, 0.0f, 0.0f);
@@ -1333,7 +1321,7 @@ void Cloud()
 	glPopMatrix();
 }
 
-void Bird()
+void Bird()     ///BIRD STRUCTURE
 {
     glPushMatrix();
     glTranslatef(-position_bird, 0.0f, 0.0f);
@@ -1345,7 +1333,7 @@ void Bird()
 
 	glBegin(GL_TRIANGLE_FAN);
 	    glColor3ub(225, 225, 208);
-		glVertex2f(mm, nn); // center of circle
+		glVertex2f(mm, nn);      /// center of circle
 		for(i = 0; i <= triangleAmount;i++) {
 			glVertex2f(
 		            mm + (radiusmm * cos(i *  twicePi / triangleAmount)),
@@ -1353,7 +1341,8 @@ void Bird()
 			);
 		}
 	glEnd();
-    glBegin(GL_POLYGON);
+
+    glBegin(GL_POLYGON);        ///Bird 1
     glColor3ub(225, 225, 208 );
     glVertex2f(0.1f,0.8f);
     glVertex2f(0.11f,0.79f);
@@ -1377,8 +1366,8 @@ void Bird()
     glVertex2f(0.144f,0.8f);
     glVertex2f(0.12f,0.83f);
     glEnd();
-	/////2nd bird////
-	glBegin(GL_POLYGON);
+
+	glBegin(GL_POLYGON);    ///Bird 2
     glColor3ub(225, 225, 208 );
     glVertex2f(-0.02f,0.8f);
     glVertex2f(-0.01f,0.79f);
@@ -1415,8 +1404,8 @@ void Bird()
 			);
 		}
 	glEnd();
-	/////3rd bird/////
-	glBegin(GL_POLYGON);
+
+	glBegin(GL_POLYGON);    ///Bird 3
     glColor3ub(225, 225, 208 );
     glVertex2f(-0.72f,0.8f);
     glVertex2f(-0.71f,0.79f);
@@ -1444,7 +1433,7 @@ void Bird()
 
 	glBegin(GL_TRIANGLE_FAN);
 	    glColor3ub(225, 225, 208);
-		glVertex2f(mmmm,nnnn); // center of circle
+		glVertex2f(mmmm,nnnn); /// center of circle
 		for(i = 0; i <= triangleAmount;i++) {
 			glVertex2f(
 		            mmmm + (radiusmmm * cos(i *  twicePi / triangleAmount)),
@@ -1465,7 +1454,8 @@ void Bird()
 			);
 		}
 	glEnd();
-    glBegin(GL_POLYGON);
+
+    glBegin(GL_POLYGON);        ///Bird 4
     glColor3ub(225, 225, 208 );
     glVertex2f(-0.6f,0.8f);
     glVertex2f(-0.59f,0.79f);
@@ -1493,7 +1483,7 @@ void Bird()
 
 }
 
-void Tree()
+void Tree()     ///TREE STRUCTURE
 {
     glScalef(0.5,0.5,0.0);
     glTranslatef(1.0,-0.9,0.0);
@@ -1534,7 +1524,7 @@ void Tree()
     glLoadIdentity();
 }
 
-void Umbrella()
+void Umbrella()     ///UMBRELLA STRUCTURE
 {
     glTranslatef(-0.75, 0.00, 0.0);
 
@@ -1614,7 +1604,7 @@ void Umbrella()
     glLoadIdentity();
 }
 
-void Seat()
+void Seat()     ///SEAT STRUCTURE
 {
     glScalef(1.8,1.8, 0);
     glTranslatef(-0.42, 0.42, 0.0);
@@ -1646,7 +1636,7 @@ void Seat()
     glLoadIdentity();
 }
 
-void Balloon()
+void Balloon()  ///STRUCTURE BALOON
 {
     glPushMatrix();
     glTranslatef(-position_cloud, 0.0f, 0.0f);
@@ -1709,10 +1699,9 @@ void Balloon()
         glEnd();
     glLoadIdentity();
     glPopMatrix();
-    //glLoadIdentity();
 }
 
-void Day_Sky()
+void Day_Sky()      ///DAY SKY
 {
 
     glBegin(GL_QUADS);
@@ -1722,6 +1711,7 @@ void Day_Sky()
     glVertex2f(1.0f, .95f);
     glVertex2f(-1.0f, .95f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(26, 163, 255);
     glVertex2f(-1.0, .95f);
@@ -1729,6 +1719,7 @@ void Day_Sky()
     glVertex2f(1.0f, .90f);
     glVertex2f(-1.0f, .90f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(51, 173, 255);
     glVertex2f(-1.0, .90f);
@@ -1736,6 +1727,7 @@ void Day_Sky()
     glVertex2f(1.0f, .85f);
     glVertex2f(-1.0f, .85f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(77, 184, 255);
     glVertex2f(-1.0, .85f);
@@ -1743,6 +1735,7 @@ void Day_Sky()
     glVertex2f(1.0f, .80f);
     glVertex2f(-1.0f, .80f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(102, 194, 255);
     glVertex2f(-1.0, .80f);
@@ -1750,6 +1743,7 @@ void Day_Sky()
     glVertex2f(1.0f, .70f);
     glVertex2f(-1.0f, .70f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(128, 204, 255);
     glVertex2f(-1.0, .70f);
@@ -1757,6 +1751,7 @@ void Day_Sky()
     glVertex2f(1.0f, .60f);
     glVertex2f(-1.0f, .60f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(153, 214, 255);
     glVertex2f(-1.0, .60f);
@@ -1764,6 +1759,7 @@ void Day_Sky()
     glVertex2f(1.0f, .40f);
     glVertex2f(-1.0f, .40f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(179, 224, 255);
     glVertex2f(-1.0, .40f);
@@ -1792,7 +1788,7 @@ void Day_Sky()
     }
 }
 
-void Evening_Sky()
+void Evening_Sky()  ///EVENING SKY
 {
     glBegin(GL_QUADS);
     glColor3ub(255, 255, 153);
@@ -1801,6 +1797,7 @@ void Evening_Sky()
     glVertex2f(1.0f, .95f);
     glVertex2f(-1.0f, .95f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(255, 255, 0);
     glVertex2f(-1.0, .95f);
@@ -1808,6 +1805,7 @@ void Evening_Sky()
     glVertex2f(1.0f, .90f);
     glVertex2f(-1.0f, .90f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(255, 255, 77);
     glVertex2f(-1.0, .90f);
@@ -1815,6 +1813,7 @@ void Evening_Sky()
     glVertex2f(1.0f, .85f);
     glVertex2f(-1.0f, .85f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(255, 255, 102);
     glVertex2f(-1.0, .85f);
@@ -1822,6 +1821,7 @@ void Evening_Sky()
     glVertex2f(1.0f, .80f);
     glVertex2f(-1.0f, .80f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(255, 255, 128);
     glVertex2f(-1.0, .80f);
@@ -1829,6 +1829,7 @@ void Evening_Sky()
     glVertex2f(1.0f, .70f);
     glVertex2f(-1.0f, .70f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(255, 255, 153);
     glVertex2f(-1.0, .70f);
@@ -1836,6 +1837,7 @@ void Evening_Sky()
     glVertex2f(1.0f, .60f);
     glVertex2f(-1.0f, .60f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(255, 255, 179);
     glVertex2f(-1.0, .60f);
@@ -1843,6 +1845,7 @@ void Evening_Sky()
     glVertex2f(1.0f, .40f);
     glVertex2f(-1.0f, .40f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(255, 255, 204);
     glVertex2f(-1.0, .40f);
@@ -1882,7 +1885,7 @@ void drawCircle(float x1, float y1,double radius)
     glEnd();
 }
 
-void Stars()
+void Stars()        ///STARS STRUCTURE
 {
     glPushMatrix();
     glBegin(GL_QUADS);
@@ -1950,7 +1953,7 @@ void Stars()
     glEnd();
 }
 
-void Night_Sky()
+void Night_Sky()    ///NIGHT SKY
 {
     glBegin(GL_QUADS);
     glColor3ub(44,62,80);
@@ -1964,7 +1967,7 @@ void Night_Sky()
     Stars();
 }
 
-void Sea_Texute(int r, int g, int b)
+void Sea_Texute(int r, int g, int b)    ///SEA TEXTURE
 {
     glBegin(GL_LINES);
     glColor3ub(r, g, b);
@@ -2028,7 +2031,7 @@ void Sea_Texute(int r, int g, int b)
     glEnd();
 }
 
-void Day_Sea()
+void Day_Sea()      ///DAY SEA
 {
     glBegin(GL_QUADS);
     glColor3ub(102, 153, 255);
@@ -2038,8 +2041,8 @@ void Day_Sea()
     glVertex2f(-1.0f, -0.30f); // top right
     glEnd();
 
-    ///SEA TEXURE
-    Sea_Texute(61, 117, 227);
+
+    Sea_Texute(61, 117, 227);       ///SEA TEXURE
     glTranslatef(0.02,-0.075,0.0);
         Sea_Texute(61, 117, 227);
     glLoadIdentity();
@@ -2055,33 +2058,36 @@ void Day_Sea()
 
 }
 
-void Evening_Sea()
+void Evening_Sea()      ///EVENING SEA
 {
     glBegin(GL_QUADS);
     glColor3ub(77, 136, 255);
-    glVertex2f(-1.0, .15f); // top left
-    glVertex2f(1.0f, .15f); // top right
-    glVertex2f(1.0, -0.30f); // top left
-    glVertex2f(-1.0f, -0.30f); // top right
+    glVertex2f(-1.0, .15f);  // top left
+    glVertex2f(1.0f, .15f);  // top right
+    glVertex2f(1.0, -0.30f);  // top left
+    glVertex2f(-1.0f, -0.30f);  // top right
     glEnd();
 
-    ///SEA TEXURE
-    Sea_Texute(51, 114, 242);
+
+    Sea_Texute(51, 114, 242);     ///SEA TEXURE
     glTranslatef(0.02,-0.075,0.0);
         Sea_Texute(51, 114, 242);
     glLoadIdentity();
+
     glTranslatef(0.07,-0.15,0.0);
         Sea_Texute(51, 114, 242);
     glLoadIdentity();
+
     glTranslatef(-0.05,-0.2275,0.0);
         Sea_Texute(51, 114, 242);
     glLoadIdentity();
+
     glTranslatef(0.03,-0.35,0.0);
         Sea_Texute(51, 114, 242);
     glLoadIdentity();
 }
 
-void Night_Sea()
+void Night_Sea()        ///NIGHT SEA
 {
     glBegin(GL_QUADS);
     glColor3ub(0, 34, 102);
@@ -2091,23 +2097,26 @@ void Night_Sea()
     glVertex2f(-1.0f, -0.30f); // top right
     glEnd();
 
-    ///SEA TEXURE
-    Sea_Texute(17, 63, 156);
+
+    Sea_Texute(17, 63, 156);        ///SEA TEXURE
     glTranslatef(0.02,-0.075,0.0);
         Sea_Texute(17, 63, 156);
     glLoadIdentity();
+
     glTranslatef(0.07,-0.15,0.0);
         Sea_Texute(17, 63, 156);
     glLoadIdentity();
+
     glTranslatef(-0.05,-0.2275,0.0);
         Sea_Texute(17, 63, 156);
     glLoadIdentity();
+
     glTranslatef(0.03,-0.35,0.0);
         Sea_Texute(17, 63, 156);
     glLoadIdentity();
 }
 
-void Sea_Wave(int r, int g, int b)
+void Sea_Wave(int r, int g, int b)      ///SEA WAVE
 {
     glPushMatrix();
     glTranslatef(position_sea_wave, 0.0f, 0.0f);
@@ -2170,7 +2179,7 @@ void Sea_Wave(int r, int g, int b)
     glPopMatrix();
 }
 
-void Day_Mountain()
+void Day_Mountain()         ///DAY MOUNTAIN
 {
     glBegin(GL_TRIANGLES);
     glColor3ub(0, 102, 0);
@@ -2200,7 +2209,7 @@ void Day_Mountain()
     glLoadIdentity();
 }
 
-void Evening_Mountain()
+void Evening_Mountain()     ///EVENING MOUNTAIN
 {
     glBegin(GL_TRIANGLES);
     glColor3ub(0, 77, 0);
@@ -2230,7 +2239,7 @@ void Evening_Mountain()
     glLoadIdentity();
 }
 
-void Night_Mountain()
+void Night_Mountain()   ///NIGHT MOUNTAIN
 {
     glBegin(GL_TRIANGLES);
     glColor3ub(10, 51, 10);
@@ -2260,7 +2269,7 @@ void Night_Mountain()
     glLoadIdentity();
 }
 
-void Mill()
+void Mill()     ///MILL STRUCTURE
 {
     glScalef(.10,.15, 1);
     glBegin(GL_TRIANGLES);
@@ -2269,6 +2278,7 @@ void Mill()
     glVertex2f( 0.05f, -0.20f);
     glVertex2f( -0.05f, -0.20f);
     glEnd();
+
     glBegin(GL_QUADS);
     glColor3ub(166, 166, 166);
     glVertex2f(-0.05, -.20f);
@@ -2276,6 +2286,7 @@ void Mill()
     glVertex2f(0.05f, -0.62f);
     glVertex2f(-0.05f, -0.62f);
     glEnd();
+
     glPushMatrix();
     glRotatef(-i,0.0,0.0,0.1);
     int iw;
@@ -2299,27 +2310,30 @@ void Mill()
     glVertex2f( 0.225f, -0.225f);
     glVertex2f( 0.6f, -0.3f);
     glEnd();
+
     glBegin(GL_TRIANGLES);
     glColor3ub(0, 102, 153);
     glVertex2f(0.0f, 0.0f);
     glVertex2f( -0.225f, -0.225f);
     glVertex2f( -0.6f, -0.3f);
     glEnd();
+
     glBegin(GL_TRIANGLES);
     glColor3ub(0, 102, 153);
     glVertex2f(0.0f, 0.0f);
     glVertex2f( -0.1f, 0.3f);
     glVertex2f( 0.0f, 0.6f);
     glEnd();
+
     glPopMatrix();
     i+=-0.30f;
     glLoadIdentity();
 }
 
-void Day_Sand_Texure()
+void Day_Sand_Texure()  ///SAND TEXTURE
 {
-    ///SAND TEXURE
-    glBegin(GL_LINES);
+
+    glBegin(GL_LINES);      ///SAND TEXURE
     glColor3ub(153, 153, 0);
     glVertex2f(-0.95,-0.35);
     glVertex2f(-0.91,-0.32);
@@ -2336,10 +2350,10 @@ void Day_Sand_Texure()
     glEnd();
 }
 
-void Evening_Sand_Texure()
+void Evening_Sand_Texure()  ///EVENING SAND TEXTURE
 {
-    ///SAND TEXURE
-    glBegin(GL_LINES);
+
+    glBegin(GL_LINES);      ///SAND TEXURE
     glColor3ub(153, 153, 0);
     glVertex2f(-0.95,-0.35);
     glVertex2f(-0.91,-0.32);
@@ -2356,19 +2370,21 @@ void Evening_Sand_Texure()
     glEnd();
 }
 
-void Night_Sand_Texure()
+void Night_Sand_Texure()    ///NIGHT SAND TEXTURE
 {
-    ///SAND TEXURE
-    glBegin(GL_LINES);
+    glBegin(GL_LINES);      ///SAND TEXURE
+
     glColor3ub(0, 0, 0);
     glVertex2f(-0.95,-0.35);
     glVertex2f(-0.91,-0.32);
     glEnd();
+
     glBegin(GL_LINES);
     glColor3ub(0, 0, 0);
     glVertex2f(-0.91,-0.32);
     glVertex2f(-0.91,-0.35);
     glEnd();
+
     glBegin(GL_LINES);
     glColor3ub(0, 0, 0);
     glVertex2f(-0.91,-0.35);
@@ -2376,7 +2392,7 @@ void Night_Sand_Texure()
     glEnd();
 }
 
-void Day_Sand()
+void Day_Sand()     ///DAY SAND
 {
     glBegin(GL_QUADS);
     glColor3ub(243, 213, 120);
@@ -2458,19 +2474,22 @@ void Day_Sand()
 
     ///ADD MORE TEXURE
 
-    ///ADD SEATS AND UMBRELLA
-    Umbrella();
+
+    Umbrella();    ///ADD SEATS AND UMBRELLA
     Seat();
     glTranslatef(0.9,0.0,0.0);
         Umbrella();
     glLoadIdentity();
+
     glTranslatef(0.9,0.0,0.0);
         Seat();
     glLoadIdentity();
+
     glScalef(0.7, 0.7, 0.0);
     glTranslatef(0.35,-0.05,0.0);
         Umbrella();
     glLoadIdentity();
+
     glScalef(0.7, 0.7, 0.0);
     glTranslatef(0.35,-0.05,0.0);
         Seat();
@@ -2478,7 +2497,7 @@ void Day_Sand()
 
 }
 
-void Night_Sand()
+void Night_Sand()   ///NIGHT SAND
 {
     glBegin(GL_QUADS);
     glColor3ub(170, 149, 8);
@@ -2560,8 +2579,8 @@ void Night_Sand()
 
     ///ADD MORE TEXURE
 
-    ///ADD SEATS AND UMBRELLA
-    Umbrella();
+
+    Umbrella();     ///ADD SEATS AND UMBRELLA
     Seat();
     glTranslatef(0.9,0.0,0.0);
         Umbrella();
@@ -2579,7 +2598,7 @@ void Night_Sand()
     glLoadIdentity();
 }
 
-void Evening_Sand()
+void Evening_Sand()     ///EVENING SAND
 {
     glBegin(GL_QUADS);
     glColor3ub(249, 233, 185);
@@ -2661,8 +2680,8 @@ void Evening_Sand()
 
     ///ADD MORE TEXURE
 
-    ///ADD SEATS AND UMBRELLA
-    Umbrella();
+
+    Umbrella();         ///ADD SEATS AND UMBRELLA
     Seat();
     glTranslatef(0.9,0.0,0.0);
         Umbrella();
@@ -2680,8 +2699,8 @@ void Evening_Sand()
     glLoadIdentity();
 }
 
-///EVENT HANDLER
-void handleKeypress(unsigned char key, int x, int y)
+
+void handleKeypress(unsigned char key, int x, int y) ///EVENT HANDLER
 {
     switch (key)
     {
@@ -2706,7 +2725,8 @@ void handleKeypress(unsigned char key, int x, int y)
 }
 
 ///VIEWS
-void View_Night() ///NIGHT TIME
+
+void View_Night()   ///NIGHT TIME
 {
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -2744,7 +2764,7 @@ void load_Night(int x)
     glutDisplayFunc(View_Night);
 }
 
-void View_Evening() ///EVENING TIME
+void View_Evening()     ///EVENING TIME
 {
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -2782,7 +2802,7 @@ void load_Evening(int x)
     glutDisplayFunc(View_Evening);
 }
 
-void View_Day() ///DAY TIME
+void View_Day()     ///DAY TIME
 {
     glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -2825,10 +2845,15 @@ void load_Start()
 
 int main(int argc, char** argv)
 {
-	glutInit(&argc, argv);
+    cout<<"press R or r for rain start"<< endl;
+	cout<<"press D or d for rain stop"<< endl;
+
+    glutInit(&argc, argv);
 	glutInitWindowSize(800, 640);
     glutInitWindowPosition(400, 80);
-	glutCreateWindow("Dynamic Sea Beach View (Including Audio Effects)");
+	glutCreateWindow("Cox's bazar Sea Beach View");
+
+
 
 	glutDisplayFunc(load_Start);
 
