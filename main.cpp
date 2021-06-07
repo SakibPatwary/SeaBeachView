@@ -6,19 +6,19 @@
 /// Member 03: Sakib Patwary ____________ID: 18-38140-2
 /// Member 04: Nila Mahazaben____________ID: 19-39964-1
 
-///Main Function Line : 2850
-///Ship 01 Line : 169
-///Ship 02 Line : 245
-///Tower Line : 356
-///Rain Line : 512
-///Sun Line : 1158
-///Moon Line : 1179
-///cloud Line : 1211
-///Bird Line : 1324
-///Tree Line : 1486
+///Main Function Line : 2883
+///Ship 01 Line : 201
+///Ship 02 Line : 277
+///Tower Line : 388
+///Rain Line : 544
+///Sun Line : 1190
+///Moon Line : 1211
+///cloud Line : 1243
+///Bird Line : 1356
+///Tree Line : 1518
 ///Umbrella Line : 1527
 ///Seat Line : 1607
-///Balloon Line : 1639
+///Balloon Line : 1671
 ///Day Sky Line : 1704
 ///Evening Sky Line : 1791
 ///Night Sky Line : 1956
@@ -27,7 +27,7 @@
 ///Night Sea Line : 2090
 ///Sea Wave Line : 2119
 ///Day Mountain Line : 2182
-///Enening Mountain Line : 2212
+///Evening Mountain Line : 2212
 ///Night Mountain : 2242
 ///Mill Line : 2272
 ///Day Sand Line : 2333
@@ -2066,7 +2066,7 @@ void Sea_Texute(int r, int g, int b)    ///SEA TEXTURE
 void Day_Sea()      ///DAY SEA
 {
     glBegin(GL_QUADS);
-    glColor3ub(102, 153, 255);
+    glColor3ub(102, 153, 202);
     glVertex2f(-1.0, .15f); // top left
     glVertex2f(1.0f, .15f); // top right
     glVertex2f(1.0, -0.30f); // top left
@@ -2122,7 +2122,7 @@ void Evening_Sea()      ///EVENING SEA
 void Night_Sea()        ///NIGHT SEA
 {
     glBegin(GL_QUADS);
-    glColor3ub(0, 34, 102);
+    glColor3ub(150,255,105);
     glVertex2f(-1.0, .15f); // top left
     glVertex2f(1.0f, .15f); // top right
     glVertex2f(1.0, -0.30f); // top left
@@ -2389,11 +2389,13 @@ void Evening_Sand_Texure()  ///EVENING SAND TEXTURE
     glVertex2f(-0.95,-0.35);
     glVertex2f(-0.91,-0.32);
     glEnd();
+
     glBegin(GL_LINES);
     glColor3ub(153, 153, 0);
     glVertex2f(-0.91,-0.32);
     glVertex2f(-0.91,-0.35);
     glEnd();
+
     glBegin(GL_LINES);
     glColor3ub(153, 153, 0);
     glVertex2f(-0.91,-0.35);
